@@ -1,5 +1,4 @@
 export default function handler(req, res) {
-  const { selectedTime } = req.body
-  console.log(`[LOG] Ha scelto ${selectedTime}`)
-  res.status(200).end()
+  console.log("[API] Risposta:", req.body);
+  res.status(200).end();
 }
