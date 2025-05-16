@@ -39,6 +39,7 @@ const Dashboard = () => {
   } catch (err) {
     console.error("Errore:", err);
   }
+};  
 
   // Form data for credit card
   const [cardData, setCardData] = useState({
