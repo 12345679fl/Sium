@@ -8,6 +8,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import Navbar from "./components/Navbar"
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css"
 
 // Auth context
@@ -103,6 +104,7 @@ function App() {
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </AnimatePresence>
+          <Analytics />
         </div>
       </Router>
     </AuthContext.Provider>
