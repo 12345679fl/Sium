@@ -21,6 +21,7 @@ const Dashboard = () => {
   const videoRef = useRef(null)
 
   const handleSubmit = async (e) => {
+    console.error(selectedTime);
     e.preventDefault();
 
     try {
