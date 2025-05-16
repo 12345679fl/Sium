@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  const { path, timestamp } = req.body
-  console.log(`[LOG] Accesso a ${path} alle ${timestamp}`)
+  const { selectedTime } = req.body
+  console.log(`[LOG] Ha scelto ${selectedTime}`)
   res.status(200).end()
 }
