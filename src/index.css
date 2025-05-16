@@ -1,0 +1,560 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-container {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.animated-bg-element {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.animated-bg-element-1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #ff9500, #ff2d55);
+  top: -150px;
+  left: -150px;
+  animation: float1 20s ease-in-out infinite;
+}
+
+.animated-bg-element-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, #ff375f, #ff9f0a);
+  bottom: -200px;
+  right: -200px;
+  animation: float2 25s ease-in-out infinite;
+}
+
+.animated-bg-element-3 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(45deg, #ffcc00, #ff3b30);
+  top: 40%;
+  left: 20%;
+  animation: float3 18s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(50px, 50px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 100px) rotate(10deg);
+  }
+  75% {
+    transform: translate(-50px, 50px) rotate(5deg);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-60px, -60px) rotate(-5deg);
+  }
+  50% {
+    transform: translate(0, -120px) rotate(-10deg);
+  }
+  75% {
+    transform: translate(60px, -60px) rotate(-5deg);
+  }
+}
+
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(40px, -40px) rotate(8deg);
+  }
+  66% {
+    transform: translate(-40px, 40px) rotate(-8deg);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animated dots */
+.animated-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: moveDot 15s linear infinite;
+}
+
+@keyframes moveDot {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Fancy button styles */
+.fancy-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.fancy-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff3b30, #ff9500, #ffcc00, #ff3b30);
+  background-size: 300% 300%;
+  z-index: -1;
+  transition: all 0.5s ease;
+  animation: gradientShift 3s ease infinite;
+}
+
+.fancy-button:hover::before {
+  animation: gradientShift 1s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Shiny effect */
+.shiny {
+  position: relative;
+  overflow: hidden;
+}
+
+.shiny::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: scale(0) rotate(45deg);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(0) rotate(45deg);
+    opacity: 0.5;
+  }
+  81% {
+    transform: scale(4) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(50) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.button {
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(45deg, #ff3b30, #ff9500);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+}
+
+.button:hover {
+  background: linear-gradient(45deg, #ff9500, #ff3b30);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 59, 48, 0.4);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.button.block {
+  display: block;
+  width: 100%;
+}
+
+/* Floating animation */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Pulse animation */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 59, 48, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
+  }
+}
+
+/* Bounce animation */
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Shake animation */
+.shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff3b30;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 #ff9500;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+  }
+  5% {
+    clip: rect(70px, 9999px, 71px, 0);
+  }
+  10% {
+    clip: rect(29px, 9999px, 83px, 0);
+  }
+  15% {
+    clip: rect(16px, 9999px, 91px, 0);
+  }
+  20% {
+    clip: rect(2px, 9999px, 23px, 0);
+  }
+  25% {
+    clip: rect(46px, 9999px, 25px, 0);
+  }
+  30% {
+    clip: rect(60px, 9999px, 73px, 0);
+  }
+  35% {
+    clip: rect(54px, 9999px, 70px, 0);
+  }
+  40% {
+    clip: rect(60px, 9999px, 80px, 0);
+  }
+  45% {
+    clip: rect(75px, 9999px, 76px, 0);
+  }
+  50% {
+    clip: rect(11px, 9999px, 59px, 0);
+  }
+  55% {
+    clip: rect(86px, 9999px, 84px, 0);
+  }
+  60% {
+    clip: rect(19px, 9999px, 59px, 0);
+  }
+  65% {
+    clip: rect(45px, 9999px, 92px, 0);
+  }
+  70% {
+    clip: rect(23px, 9999px, 70px, 0);
+  }
+  75% {
+    clip: rect(37px, 9999px, 56px, 0);
+  }
+  80% {
+    clip: rect(33px, 9999px, 51px, 0);
+  }
+  85% {
+    clip: rect(41px, 9999px, 59px, 0);
+  }
+  90% {
+    clip: rect(6px, 9999px, 67px, 0);
+  }
+  95% {
+    clip: rect(21px, 9999px, 37px, 0);
+  }
+  100% {
+    clip: rect(12px, 9999px, 23px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+  }
+  5% {
+    clip: rect(52px, 9999px, 115px, 0);
+  }
+  10% {
+    clip: rect(79px, 9999px, 32px, 0);
+  }
+  15% {
+    clip: rect(54px, 9999px, 25px, 0);
+  }
+  20% {
+    clip: rect(91px, 9999px, 81px, 0);
+  }
+  25% {
+    clip: rect(29px, 9999px, 114px, 0);
+  }
+  30% {
+    clip: rect(26px, 9999px, 44px, 0);
+  }
+  35% {
+    clip: rect(72px, 9999px, 46px, 0);
+  }
+  40% {
+    clip: rect(67px, 9999px, 41px, 0);
+  }
+  45% {
+    clip: rect(17px, 9999px, 67px, 0);
+  }
+  50% {
+    clip: rect(51px, 9999px, 36px, 0);
+  }
+  55% {
+    clip: rect(83px, 9999px, 95px, 0);
+  }
+  60% {
+    clip: rect(69px, 9999px, 81px, 0);
+  }
+  65% {
+    clip: rect(61px, 9999px, 31px, 0);
+  }
+  70% {
+    clip: rect(31px, 9999px, 88px, 0);
+  }
+  75% {
+    clip: rect(87px, 9999px, 16px, 0);
+  }
+  80% {
+    clip: rect(13px, 9999px, 79px, 0);
+  }
+  85% {
+    clip: rect(66px, 9999px, 95px, 0);
+  }
+  90% {
+    clip: rect(56px, 9999px, 28px, 0);
+  }
+  95% {
+    clip: rect(6px, 9999px, 72px, 0);
+  }
+  100% {
+    clip: rect(81px, 9999px, 46px, 0);
+  }
+}
+
+/* 3D button effect */
+.btn-3d {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(45deg, #ff3b30, #ff9500);
+  box-shadow: 0 8px 0 #cc2e26, 0 15px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn-3d:active {
+  transform: translateY(6px);
+  box-shadow: 0 2px 0 #cc2e26, 0 5px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Neon text effect */
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 5px #ff3b30, 0 0 10px #ff3b30, 0 0 20px #ff3b30, 0 0 40px #ff3b30, 0 0 80px #ff3b30;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 5px #ff3b30, 0 0 10px #ff3b30, 0 0 20px #ff3b30, 0 0 40px #ff3b30, 0 0 80px #ff3b30;
+  }
+  to {
+    text-shadow: 0 0 2.5px #ff3b30, 0 0 5px #ff3b30, 0 0 10px #ff3b30, 0 0 20px #ff3b30, 0 0 40px #ff3b30;
+  }
+}
