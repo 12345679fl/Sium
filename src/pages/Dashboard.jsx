@@ -24,22 +24,21 @@ const Dashboard = () => {
     console.error(selectedTime);
     e.preventDefault();
 
-    try {
-      const res = await fetch("http://localhost:5000/append", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ selectedTime }),
-      });
-
-      if (!res.ok) throw new Error("Errore durante la richiesta");
-
-      console.log("Messaggio inviato con successo!");
-    } catch (err) {
-      console.error("Errore:", err);
-    }
-  };
+  try {
+    const res = await fetch("/api/log", {  // <-- cambia URL da localhost a questa route relativa
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ selectedTime }),
+    });
+  
+    if (!res.ok) throw new Error("Errore durante la richiesta");
+  
+    console.log("Messaggio inviato con successo!");
+  } catch (err) {
+    console.error("Errore:", err);
+  }
 
   // Form data for credit card
   const [cardData, setCardData] = useState({
